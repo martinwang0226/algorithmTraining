@@ -5,4 +5,12 @@ package com.example.lib.String;
  */
 
 public class reverseString {
+    public static void main(String[] args){
+        System.out.println("反转后的字符串是" +"===============" +reverseString("ABCDEFG"));
+
+    }
+
+    public static String reverseString(String str){
+      return new StringBuffer(str).reverse().toString();
+    }
 }
