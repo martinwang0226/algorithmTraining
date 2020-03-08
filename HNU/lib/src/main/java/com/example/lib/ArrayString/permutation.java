@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * Created by martinwang on 2018/8/31.
+ * 给定两个字符串，请确定其中一个字符串的字符重新排序后，能否变成另一个字符串
  */
 
 public class permutation {
