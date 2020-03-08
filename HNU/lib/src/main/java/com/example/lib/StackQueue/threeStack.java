@@ -1,6 +1,4 @@
-package com.example.lib.Stack;
-
-import java.util.concurrent.ExecutorService;
+package com.example.lib.StackQueue;
 
 /**
  * Created by martinwang on 2018/9/1.

@@ -1,4 +1,4 @@
-package com.example.lib.tree;
+package com.example.lib.treeGraph;
 
 import java.util.LinkedList;
 import java.util.List;

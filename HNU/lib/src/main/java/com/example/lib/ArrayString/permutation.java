@@ -1,4 +1,4 @@
-package com.example.lib.String;
+package com.example.lib.ArrayString;
 
 import java.util.Arrays;
 
