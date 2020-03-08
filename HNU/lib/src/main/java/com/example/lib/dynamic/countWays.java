@@ -2,12 +2,13 @@ package com.example.lib.dynamic;
 
 /**
  * Created by martinwang on 2018/9/1.
+ * 上n层阶梯，有多少种方法，每一次可以说上1，2，3种阶梯
  * 递归转动态规划的重点就是添加缓存项
  */
 
 public class countWays {
     public static void main(String[] args) {
-        int k = 5;
+        int k = 22;
         int[] map=new int[1024];
         System.out.println("小孩上" + k + "阶楼梯有多少种方法" + "=============" + countWaysDP(k,map));
     }
@@ -31,7 +32,7 @@ public class countWays {
             return map[n];
         } else {
             map[n] = countWaysDP(n - 1,  map) + countWaysDP(n - 2, map) + countWaysDP(n - 3, map);
-            System.out.println("小孩上" + n + "阶楼梯有多少种方法" + "=============" + map[n]);
+            //System.out.println("小孩上" + n + "阶楼梯有多少种方法" + "=============" + map[n]);
             return map[n];
         }
     }

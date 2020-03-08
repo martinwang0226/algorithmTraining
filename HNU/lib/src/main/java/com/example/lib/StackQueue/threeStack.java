@@ -2,6 +2,7 @@ package com.example.lib.StackQueue;
 
 /**
  * Created by martinwang on 2018/9/1.
+ * 描述用一个数组实现3个栈
  */
 
 public class threeStack {

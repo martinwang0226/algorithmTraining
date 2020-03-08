@@ -5,18 +5,17 @@ import java.util.List;
 
 /**
  * Created by martinwang on 2018/9/1.
+ * 实现一个函数，检查二叉树是否平衡
  */
 
 public class isBalanced {
-    private int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    private static int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     private static List<TreeNode> nodeList = null;
 
     public static void main(String[] args) {
 
         TreeNode treeNode = new TreeNode(0);
-        TreeNode pNode1 = treeNode;
-
-
+        TreeNode pNode1;
 
     }
 
@@ -36,7 +35,7 @@ public class isBalanced {
     }
 
     // 建树
-    public void createBinTree() {
+    public static void createBinTree() {
         nodeList = new LinkedList<TreeNode>();
         for (int i = 0; i < array.length; i++)
             nodeList.add(new TreeNode(array[i]));
