@@ -5,11 +5,13 @@ import java.util.Arrays;
 /**
  * Created by martinwang on 2018/8/31.
  * 给定两个字符串，请确定其中一个字符串的字符重新排序后，能否变成另一个字符串
+ *  是否区分大小写啊
+ *  先判断长度
  */
 
 public class permutation {
     public static void main(String args[]) {
-        System.out.println("字符串匹配" + "===============" + permutation("HelWorld", "HelloWorld"));
+        System.out.println("字符串重新排序，能否变成另一个呢？？？" + "===============" + permutation("HelWorld", "HelloWorld"));
     }
 
     public static String sort(String str) {
@@ -18,6 +20,7 @@ public class permutation {
         return new String(content);
     }
 
+    //解法1，排序解法，效率不一定高，但是清晰容易想出来
     public static boolean permutation(String s, String t) {
         if (s.length() != t.length()) {
             return false;
@@ -25,6 +28,8 @@ public class permutation {
         return sort(s).equals(sort(t));
     }
 
+
+    //这里假设字符集为ASCII码
     public static boolean permutationNum(String s, String t) {
         if (s.length() != t.length()) {
             return false;
