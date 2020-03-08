@@ -7,7 +7,7 @@ package com.example.lib.sort;
 public class binarySearch {
 
     public static void main(String[] srgs) {
-        int[] a = {1,3,4,5,6,7,8,11};
+        int[] a = {2,3,4,5,6,7,8,11};
         System.out.println("寻找小数字"+"==============="+binarySearchRecursive(a,2,0,a.length-1));
     }
 
