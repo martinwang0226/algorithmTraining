@@ -1,7 +1,11 @@
 package com.example.lib.ArrayString;
 
 /**
- * <description>
+ * 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
+ * <p>
+ * 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+ * <p>
+ * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
  *
  * @author habo
  * @date 2020/3/21
@@ -9,34 +13,20 @@ package com.example.lib.ArrayString;
 public class removeNum {
 
     public static void main(String[] args) {
-        System.out.print("链表中的两数相加" + "=======================");
+        int[] numsTest = {1,2,3,4,4,5,6,7,7};
+        System.out.print("删除数组中的元素" + "======================="+removeElement(numsTest,4));
     }
 
 
-    //思路 1：时间复杂度: O(N^2) 空间复杂度: O(1)
-    private int removeIndex(int[] nums, int len, int index) {
-        for (int i = index + 1;i < len;i++) {
-            nums[i - 1] = nums[i];
-        }
-        //python这里会调用一个resize的方法，把数组的长度变量修改成len-1，但数组实际上的长度还是不变
-        return len - 1;
-    }
-    public int removeElement(int[] nums, int val) {
-        int len = nums.length;
-        while (true) {
-            boolean find = false;
-            for (int i = 0;i < len;i++) {
-                if (nums[i] == val) {
-                    len = removeIndex(nums, len, i);
-                    find = true;
-                    break;
-                }
-            }
-            if (!find) {
-                break;
+    public static int removeElement(int[] nums, int val) {
+        int res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[res] = nums[i];
+                res++;
             }
         }
-        return len;
+        return res;
     }
 
     //思路 1：时间复杂度: O(N^2) 空间复杂度: O(1)
@@ -44,7 +34,7 @@ public class removeNum {
     public int removeElement2(int[] nums, int val) {
         int len = 0;
         //把nums[0..len]当做新数组，不等于val的往里面插入
-        for (int i = 0;i < nums.length;i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
                 nums[len++] = nums[i];
             }
