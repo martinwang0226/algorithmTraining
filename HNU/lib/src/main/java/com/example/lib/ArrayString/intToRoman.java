@@ -28,7 +28,7 @@ package com.example.lib.ArrayString;
 public class intToRoman {
 
     public static void main(String[] args) {
-        System.out.print("链表中的两数相加" + "=======================");
+        System.out.print("罗马数字转整数" + "=======================");
     }
 
     public String intToRoman(int num) {
@@ -43,6 +43,43 @@ public class intToRoman {
         for (int i = 0; i < 4; i++) {
             ret = lookup[i][num % 10] + ret;
             num /= 10;
+        }
+        return ret;
+    }
+
+    public int romanToInt(String s) {
+        // 初始化了一个一一对应的map，方便后面取出符号。
+        String[][] lookup = {
+                {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
+                {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
+                {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
+                {"", "M", "MM", "MMM"}
+        };
+        int ret = 0;
+        int base = 1000;
+        int x = 3;
+        int y = 3;
+        int pos = 0;
+        while (pos < s.length()){
+            if (pos + lookup[x][y].length() <= s.length()) {
+                boolean wrong = false;
+                for (int i = 0; i < lookup[x][y].length(); i++) {
+                    if (lookup[x][y].charAt(i) != s.charAt(pos + i)){
+                        wrong = true;
+                        break;
+                    }
+                }
+                if (!wrong) {
+                    pos += lookup[x][y].length();
+                    ret += base * y;
+                }
+            }
+            y--;
+            if (y == 0) {
+                base /= 10;
+                x--;
+                y = 9;
+            }
         }
         return ret;
     }

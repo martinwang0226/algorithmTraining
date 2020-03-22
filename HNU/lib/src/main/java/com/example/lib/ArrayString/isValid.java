@@ -7,12 +7,20 @@ import java.util.Stack;
  *
  * @author habo
  * @date 2020/3/21
+ * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+ *
+ * 有效字符串需满足：
+ *  1.左括号必须用相同类型的右括号闭合。
+ *  2.左括号必须以正确的顺序闭合。
+ *
+ * 注意：空字符串可被认为是有效字符串。
  */
 public class isValid {
     public static void main(String[] args) {
         System.out.print("链表中的两数相加" + "=======================");
     }
 
+    //时间复杂度: O(N^2) 空间复杂度: O(N)
     public boolean isValid(String s) {
         int length;
         while (true) {
@@ -27,6 +35,7 @@ public class isValid {
         return length == 0;
     }
 
+    //思路 2：时间复杂度: O(N) 空间复杂度: O(N)
     public boolean isValid2(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
