@@ -10,7 +10,8 @@ public class LinkedListNode <T>{
     public LinkedListNode<T> next;
     public T data;
 
-    public LinkedListNode(Object object,int data2,Object object2){
+    public LinkedListNode(T data){
+        this.data = data;
 
     }
 }

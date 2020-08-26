@@ -5,6 +5,8 @@ import java.util.Hashtable;
 /**
  * <description>
  *
+ * 编写代码，移除未排序链表中的重复节点
+ *  如果不能使用临时缓冲区，该如何解决
  * @author habo
  * @date 2020/3/8
  */
@@ -16,10 +18,10 @@ public class StringNumber {
     //尾部插入
     public boolean addTail(int data) {
         if (this.head == null) {
-            this.head = new LinkedListNode<Integer>(null, data, null);
+            this.head = new LinkedListNode<Integer>( data);
             this.tail = this.head;
         } else {
-            LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(this.tail, data, null);
+            LinkedListNode<Integer> newNode = new LinkedListNode<Integer>( data);
             this.tail.next = newNode;
             this.tail = newNode;
         }

@@ -11,11 +11,13 @@ public class removeNthFromEnd {
         System.out.print("链表中的两数相加" + "=======================");
     }
 
+    //首推双指针方法，这是一种思想
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode slow = dummy;
         ListNode fast = dummy;
+        //fast指针向前移动k个节点
         for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
@@ -28,7 +30,7 @@ public class removeNthFromEnd {
     }
 
     public ListNode removeNthFromEnd2(ListNode head, int n) {
-        // cnt 是链表的长度
+        // cnt 是链表的长度，已知链表的长度
         int cnt = 0;
         ListNode temp = head;
         while (temp != null) {
