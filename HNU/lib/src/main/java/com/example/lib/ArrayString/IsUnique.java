@@ -8,7 +8,7 @@ package com.example.lib.ArrayString;
 
 public class IsUnique {
     public static void main(String[] args) {
-        System.out.print("true or false" +"=======================" +isUniqueChar2("Helo"));
+        System.out.print("true or false" + "=======================" + isUniqueChar2("Helo"));
         // isUniqueCharsString("HelloWorld");
 
     }
@@ -32,9 +32,11 @@ public class IsUnique {
     }
 
     //假设字符串只含有小写字母a～z
-    //空间占用为原来的1／8
+    //空间占用为原来的1／8（没看懂）
     public static boolean isUniqueCharsString(String str) {
-        if (str.length() > 26) return false;
+        if (str.length() > 26) {
+            return false;
+        }
         int checker = 0;
         for (int i = 0; i < str.length(); i++) {
             System.out.print("i" + " " + " " + i);
