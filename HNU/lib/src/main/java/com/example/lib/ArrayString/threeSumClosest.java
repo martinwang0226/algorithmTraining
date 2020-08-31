@@ -11,31 +11,39 @@ import java.util.Arrays;
 public class threeSumClosest {
 
     public static void main(String[] args) {
-        System.out.print("链表中的两数相加" + "=======================");
+        System.out.print("最接近的三数之和" + "=======================");
     }
 
     public int threeSumClosest(int[] nums, int target) {
-        int n = nums.length;
-        // 通过内部 api 进行排序
         Arrays.sort(nums);
-        int ret = 1<<30;
-        // 通过固定 nums[i]、移动 nums[left] 以及 nums[right] 来逼近目标值 target
-        for (int i = 0; i < n; i++) {
-            int left = i + 1;
-            int right = n - 1;
-            while (left < right) {
-                int temp = nums[i] + nums[left] + nums[right];
-                if (Math.abs(ret - target) > Math.abs(temp - target)) {
-                    ret = temp;
+        int He, min;
+        if (nums.length < 3) {
+            return target;
+        }
+        min = nums[0] + nums[1] + nums[2];
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i != 0) {
+                while (nums[i] == nums[i - 1] && i < nums.length - 2) {
+                    i++;
                 }
-                // temp 小于目标值 target 说明应该向由移动 left 指针，如果大于目标值 target 说明应该向左移动 right 指针
-                if (temp <= target) {
-                    left++;
+            }
+            for (int j = i + 1, k = nums.length - 1; j < k; ) {
+                He = nums[i] + nums[j] + nums[k];
+                if (He < target) {
+                    if (target - He < Math.abs(min - target)) {
+                        min = He;
+                    }
+                    j++;
+                } else if (He > target) {
+                    if (He - target < Math.abs(min - target)) {
+                        min = He;
+                    }
+                    k--;
                 } else {
-                    right--;
+                    return target;
                 }
             }
         }
-        return ret;
+        return min;
     }
 }

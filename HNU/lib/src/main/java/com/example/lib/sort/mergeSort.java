@@ -1,7 +1,7 @@
 package com.example.lib.sort;
 
 /**
- * 合并排序常规方法
+ * 归并排序常规方法
  * Created by martinwang on 2018/9/1.
  */
 
