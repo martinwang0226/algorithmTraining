@@ -12,7 +12,6 @@ public class magicSlow {
 
     /**
      * 暴力搜索法
-     *
      * @param array
      * @return
      */
