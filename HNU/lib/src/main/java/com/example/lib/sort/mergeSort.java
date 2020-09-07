@@ -20,7 +20,9 @@ public class mergeSort {
             helper[i] = array[i];
         }
 
+        //第一个开始游标
         int helperLeft = low;
+        //第二个开始游标
         int helperRight = middle + 1;
         int current = low;
         //两个游标，helperLeft和helperRight

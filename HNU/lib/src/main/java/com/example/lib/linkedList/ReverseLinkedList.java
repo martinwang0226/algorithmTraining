@@ -24,6 +24,7 @@ public class ReverseLinkedList {
 
     /**
      * 递归
+     *
      * @param head
      * @return
      */
@@ -40,6 +41,7 @@ public class ReverseLinkedList {
 
     /**
      * 迭代
+     *记不住
      * @param node
      * @return
      */
@@ -57,6 +59,7 @@ public class ReverseLinkedList {
 
     /**
      * 方法3 利用其他数据结构 stack
+     * 最容易理解
      *
      * @param head
      * @return

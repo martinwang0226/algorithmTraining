@@ -12,6 +12,7 @@ import java.util.HashMap;
  * 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素
  */
 public class twoSum {
+    //返回的是一个二维向量
     public static void main(String[] args) {
         System.out.print("两数字相加的和等于目标值" + "=======================");
     }

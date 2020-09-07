@@ -2,7 +2,9 @@ package com.example.lib.ArrayString;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <description>
@@ -74,7 +76,7 @@ public class threeSum {
     public List<List<Integer>> threeSum2(int[] nums) {
         List<List<Integer>> List = new ArrayList<List<Integer>>();
         if (nums.length < 3) return List;
-        Arrays.sort(nums); // 进行排序
+        Arrays.sort(nums); // 第一步：进行排序
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] > 0) {
                 break;
@@ -82,6 +84,8 @@ public class threeSum {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             } // 去掉重复
+
+
             for (int j = i + 1, k = nums.length - 1; j < k; ) {
                 int He = nums[i] + nums[j] + nums[k];
                 if (He == 0) {
