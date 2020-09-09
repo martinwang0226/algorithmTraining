@@ -49,6 +49,7 @@ public class AnagramComparator {
 
         //将同为变位词的单词放在同一组
         for (String s : array) {
+
             String key = sortChars(s);
             if (!hash.containsKey(key)) {
                 hash.put(key, new LinkedList<String>());

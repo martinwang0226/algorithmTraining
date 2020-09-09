@@ -33,8 +33,6 @@ public class findSum {
         findSum(node.right, sum, path, level + 1);
 
         path[level] = Integer.MIN_VALUE;
-
-
     }
 
     public void findSum(TreeNode node, int sum) {

@@ -20,6 +20,12 @@ public class checkBST {
 
     public static int last_printed = Integer.MIN_VALUE;
 
+    /**
+     * 二叉搜索树中序遍历严格递增
+     *
+     * @param n
+     * @return
+     */
     public static boolean checkBST(TreeNode n) {
 
         if (n == null) {
