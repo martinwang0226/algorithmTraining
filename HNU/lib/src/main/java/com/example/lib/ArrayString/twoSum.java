@@ -33,7 +33,7 @@ public class twoSum {
     }
 
 
-    //主要的思路就是，空间换时间
+    //主要的思路就是，空间换时间，存储的是映射表的key-Value
     public int[] twoSum2(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {

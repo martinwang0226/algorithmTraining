@@ -16,12 +16,13 @@ import java.util.Set;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
  * @author habo
- * @date 2020/3/21
+ * @date 2020/3/2
+ *
  */
 public class threeSum {
 
     public static void main(String[] args) {
-        System.out.print("链表中的两数相加" + "=======================");
+//        System.out.print("链表中的两数相加" + "=======================");
     }
 
     /**

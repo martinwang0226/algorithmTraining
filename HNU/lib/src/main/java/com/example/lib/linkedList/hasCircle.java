@@ -9,6 +9,7 @@ import java.util.Set;
  */
 public class hasCircle {
 
+    //顺着链表一直遍历下去，看有无重复节点
     public boolean hasCycle(Node head) {
         //声明一个set存放已遍历的节点，即为标记节点（Set中不允许重复元素）
         Set<Node> set = new HashSet<>();

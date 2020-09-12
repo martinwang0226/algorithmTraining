@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 
 /**
  * Create by chenlong.wang
+ * Merge k Sorted Lists（合并 k 个排序链表
  * 给你一个链表数组，每个链表都已经按升序排列。
  *
  * 请你将所有链表合并到一个升序链表中，返回合并后的链表
@@ -12,6 +13,7 @@ import java.util.PriorityQueue;
 public class mergeKListNode {
 
 
+    //利用优先级队列实现
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists == null || lists.length < 0){
             return null;
@@ -33,6 +35,7 @@ public class mergeKListNode {
         return res.next;
     }
 
+    //利用mergeTwoLists 的结果进行链表合并
     public ListNode mergeKLists2(ListNode[] lists) {
         ListNode res = new ListNode(0);  //设置结果
         if(lists == null || lists.length < 0){
