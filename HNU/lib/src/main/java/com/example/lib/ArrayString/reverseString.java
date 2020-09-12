@@ -9,7 +9,7 @@ package com.example.lib.ArrayString;
 public class reverseString {
 
     public static void main(String[] args) {
-        System.out.print("翻转字符串" + "=======================" + reverse2("I want to be a ByteDancer"));
+        System.out.print("翻转字符串" + "=======================" + reverseWords("I want to be a ByteDancer"));
 
     }
 
@@ -42,13 +42,40 @@ public class reverseString {
      * 输出: "s'teL ekat edoCteeL tsetnoc"
      */
 
-    private String reverseWords(String s) {
+    private static String reverseWords(String s) {
         String words[] = s.split(" ");
         StringBuilder res = new StringBuilder();
         for (String word : words) {
             res.append(new StringBuffer(word).reverse().toString() + " ");
         }
         return res.toString().trim();
+    }
+
+    /**
+     * 输入:
+     * "the sky is blue",
+     *
+     * 输出:
+     * "blue is sky the".
+     * @param s
+     * @return
+     */
+    public  String reverseWords2(String s) {
+        StringBuilder sb = new StringBuilder();
+        if(s == null || "".equals(s.trim())){
+            return "";
+        }else{
+            String [] strs = s.trim().split("\\s+");
+            int len = strs.length-1;
+            for(int i=len;i>=0;i--){
+                if(i == 0){
+                    sb.append(strs[i]);
+                }else{
+                    sb.append(strs[i]+" ");
+                }
+            }
+            return sb.toString();
+        }
     }
 
 

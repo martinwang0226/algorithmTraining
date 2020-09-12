@@ -8,7 +8,7 @@ package com.example.lib.ArrayString;
  */
 public class myAtoi {
     public static void main(String[] args) {
-        System.out.print("链表中的两数相加" + "=======================");
+        System.out.print("字符串转换整数 (atoi)" + "=======================");
     }
 
     public int myAtoi(String str) {
