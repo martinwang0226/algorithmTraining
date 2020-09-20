@@ -3,6 +3,8 @@ package com.example.lib.treeGraph;
 import java.util.LinkedList;
 import java.util.List;
 
+import sun.jvm.hotspot.debugger.ThreadAccess;
+
 /**
  * Created by martinwang on 2018/9/1.
  * 实现一个函数，检查二叉树是否平衡

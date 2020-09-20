@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * Create by chenlong.wang
- * 单链表的反转
+ * 实现单链表反转
  * on 2020/8/26
  */
 public class ReverseLinkedList {
@@ -24,35 +24,38 @@ public class ReverseLinkedList {
 
     /**
      * 递归
-     *
+     *1->2->3->4
      * @param head
+     *
      * @return
      */
     public Node reverse(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
-        Node temp = head.next;
         Node newHead = reverse(head.next);
-        temp.next = head;
+        head.next.next = head;
         head.next = null;
         return newHead;
     }
 
     /**
      * 迭代
-     *记不住
-     * @param node
+     * @param cur
      * @return
+     * 两个指针，pre和next
+     * pre  1:null  2:node1->null
+     * next 1:null  2:node2->node3  3:node3->node4
+     * node 1:node1->node2   2: node2->node3 3:node2->node1->null
      */
-    public static Node reverseList(Node node) {
+    public static Node reverseList(Node cur) {
         Node pre = null;
         Node next = null;
-        while (node != null) {
-            next = node.next;
-            node.next = pre;
-            pre = node;
-            node = next;
+        while (cur != null) {
+            next = cur.next;//保留当前节点的下一个节点
+            cur.next = pre;//重置当前节点的下一个节点为上一个节点
+            pre = cur;//下次遍历需要用到的上一个节点
+            cur = next;//下次遍历需要用到的当前节点
         }
         return pre;
     }
