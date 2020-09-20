@@ -5,6 +5,9 @@ import java.util.HashMap;
 /**
  * Create by chenlong.wang
  * on 2020/9/12
+ * 实现一个 LRU 缓存淘汰算法
+ * 参考
+ * https://blog.csdn.net/weixin_41247813/article/details/82948989
  */
 public class LRUCache <K,V>{
 
