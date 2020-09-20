@@ -17,11 +17,11 @@ public class mergeTwoLists {
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode(0);
-        //dummy链表
-        ListNode prev = result;
+        //dummy head
+        ListNode dummyNode = new ListNode(0);
+        ListNode prev = dummyNode;
         // 遍历两个链表，每次比较链表头的大小，每次让较小值添加到 dummy 的后面，并且让较小值所在的链表后移一位
-        while (l1!= null && l2!= null) {
+        while (l1 != null && l2 != null) {
             if (l1.data >= l2.data) {
                 prev.next = l2;
                 l2 = l2.next;
@@ -38,7 +38,8 @@ public class mergeTwoLists {
         if (l2 != null) {
             prev.next = l2;
         }
-        return result.next;
+        ListNode resultNode = dummyNode.next;
+        return resultNode;
     }
 
     public class ListNode {

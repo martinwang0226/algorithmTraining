@@ -5,6 +5,8 @@ import java.util.Stack;
 /**
  * Create by chenlong.wang
  * 实现单链表反转
+ * 解释参考
+ * https://www.cnblogs.com/cdf-opensource-007/p/13246922.html
  * on 2020/8/26
  */
 public class ReverseLinkedList {
