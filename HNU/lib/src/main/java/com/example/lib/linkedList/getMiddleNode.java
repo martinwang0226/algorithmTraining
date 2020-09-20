@@ -9,6 +9,7 @@ package com.example.lib.linkedList;
 public class getMiddleNode {
 
     public LinkedListNode middleNode(LinkedListNode head) {
+        //快慢指针
         LinkedListNode fast = head;
         LinkedListNode slow = head;
         while(fast != null && fast.next != null){

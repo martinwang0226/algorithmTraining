@@ -6,10 +6,6 @@ package com.example.lib.ArrayString;
  *
  * 你可以假设数组是非空的，并且给定的数组总是存在多数元素。
  * Majority Element（求众数）
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/majority-element
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * on 2020/9/7
  */
 public class majorityElement {

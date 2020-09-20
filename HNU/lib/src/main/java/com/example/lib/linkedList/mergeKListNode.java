@@ -20,6 +20,7 @@ public class mergeKListNode {
         if(lists == null || lists.length < 0){
             return null;
         }
+        //按照intenger的大小优先级排队
         PriorityQueue<Integer> queue = new PriorityQueue();
         for(ListNode node:lists){
             while(node != null){
@@ -27,17 +28,18 @@ public class mergeKListNode {
                 node = node.next;
             }
         }
-        ListNode res = new ListNode(0);
-        ListNode tmp= res;
+        ListNode dummyNode = new ListNode(0);
+        ListNode tmp= dummyNode;
         while(!queue.isEmpty()){
             ListNode temp = new ListNode(queue.poll());
             tmp.next = temp;
             tmp = tmp.next;
         }
-        return res.next;
+        return dummyNode.next;
     }
 
     //利用mergeTwoLists 的结果进行链表合并
+    //常规思路，可以想到
     public ListNode mergeKLists2(ListNode[] lists) {
         ListNode res = new ListNode(0);  //设置结果
         if(lists == null || lists.length < 0){

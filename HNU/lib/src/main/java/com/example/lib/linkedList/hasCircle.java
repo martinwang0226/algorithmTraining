@@ -6,6 +6,7 @@ import java.util.Set;
 /**
  * Create by chenlong.wang
  * Linked List Cycle I（环形链表）
+ * 难度：easy
  * on 2020/9/7
  */
 public class hasCircle {
