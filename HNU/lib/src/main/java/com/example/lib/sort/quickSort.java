@@ -27,7 +27,7 @@ public class quickSort {
 
     }
 
-    //arr[low+1....j]<pivot   arr[j+1 ...i-1]>pivot
+    //arr[l+1....j]<pivot   arr[j+1 ...i-1]>pivot
     public static int partition(int arr[], int l, int r) {
         int pivot = arr[l];
 

@@ -4,6 +4,7 @@ package com.example.lib.dynamic;
  * Created by martinwang on 2018/9/1.
  * 上n层阶梯，有多少种方法，每一次可以说上1，2，3种阶梯
  * 递归转动态规划的重点就是添加缓存项
+ * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
  */
 
 public class countWays {

@@ -7,8 +7,8 @@ package com.example.lib.sort;
 public class binarySearch {
 
     public static void main(String[] srgs) {
-        int[] a = {2,3,4,5,6,7,8,11};
-        System.out.println("寻找小数字"+"==============="+binarySearchRecursive(a,2,0,a.length-1));
+        int[] a = {2, 3, 4, 5, 6, 7, 8, 11};
+        System.out.println("寻找小数字" + "===============" + binarySearchRecursive(a, 2, 0, a.length - 1));
     }
 
     //迭代
@@ -19,11 +19,11 @@ public class binarySearch {
 
         while (low <= high) {
             mid = (low + high) / 2;
-            if(a[mid]<x){
-                low = mid +1;
-            }else if(a[mid]>x){
-                high = mid -1;
-            }else {
+            if (a[mid] < x) {
+                low = mid + 1;
+            } else if (a[mid] > x) {
+                high = mid - 1;
+            } else {
                 return mid;
             }
 
@@ -32,15 +32,15 @@ public class binarySearch {
     }
 
     //递归
-    public static int binarySearchRecursive(int[] a,int x,int low,int high){
-        if(low>high)return -1;
-        int mid = (low + high)/2;
+    public static int binarySearchRecursive(int[] a, int x, int low, int high) {
+        if (low > high) return -1;
+        int mid = (low + high) / 2;
 
-        if(a[mid]<x){
-            return binarySearchRecursive(a,x,mid+1,high);
-        }else if(a[mid]>x){
-            return binarySearchRecursive(a,x,low,mid-1);
-        }else {
+        if (a[mid] < x) {
+            return binarySearchRecursive(a, x, mid + 1, high);
+        } else if (a[mid] > x) {
+            return binarySearchRecursive(a, x, low, mid - 1);
+        } else {
             return mid;
         }
     }
@@ -50,7 +50,7 @@ public class binarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid =  low + ((high - low) >> 1);
+            int mid = low + ((high - low) >> 1);
             //防止值溢出
             if (a[mid] > value) {
                 high = mid - 1;
@@ -71,7 +71,7 @@ public class binarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid =  low + ((high - low) >> 1);
+            int mid = low + ((high - low) >> 1);
             if (a[mid] > value) {
                 high = mid - 1;
             } else if (a[mid] < value) {
@@ -90,7 +90,7 @@ public class binarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid =  low + ((high - low) >> 1);
+            int mid = low + ((high - low) >> 1);
             if (a[mid] >= value) {
                 if ((mid == 0) || (a[mid - 1] < value)) return mid;
                 else high = mid - 1;
@@ -107,7 +107,7 @@ public class binarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid =  low + ((high - low) >> 1);
+            int mid = low + ((high - low) >> 1);
             if (a[mid] > value) {
                 high = mid - 1;
             } else {
@@ -117,9 +117,6 @@ public class binarySearch {
         }
         return -1;
     }
-
-
-
 
 
 }

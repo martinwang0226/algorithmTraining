@@ -2,6 +2,7 @@ package com.example.lib.sort;
 
 /**
  * 归并排序常规方法
+ * 思路：递归 + 排序数组合并
  * Created by martinwang on 2018/9/1.
  */
 
