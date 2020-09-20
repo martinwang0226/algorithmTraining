@@ -3,7 +3,7 @@ package com.example.lib.ArrayString;
 /**
  * Created by martinwang on 2018/8/31.
  * 字符串反转
- * 原题目用C／C++，这里用Java实现
+ * 反转字符串
  */
 
 public class reverseString {

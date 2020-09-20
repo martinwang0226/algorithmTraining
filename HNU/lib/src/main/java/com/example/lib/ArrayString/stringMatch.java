@@ -2,6 +2,7 @@ package com.example.lib.ArrayString;
 
 /**
  * Create by chenlong.wang
+ * 实现朴素的字符串匹配算法
  * on 2020/9/12
  */
 public class stringMatch {
