@@ -1,4 +1,4 @@
-package com.example.lib.ArrayString;
+package com.example.lib.StackQueue;
 
 import java.util.Stack;
 

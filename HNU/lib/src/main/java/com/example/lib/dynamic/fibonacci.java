@@ -2,6 +2,7 @@ package com.example.lib.dynamic;
 
 /**
  * Created by martinwang on 2018/9/1.
+ * 编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)
  */
 
 public class fibonacci {
