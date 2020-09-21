@@ -11,6 +11,7 @@ import java.util.Stack;
  * 树的遍历
  * 分为深度遍历和层序遍历
  * 都是递归写法
+ * 实现二叉树前、中、后序以及按层遍历
  *
  * @author habo
  * @date 2020/3/21
@@ -33,6 +34,7 @@ public class TreeTraversal {
     }
 
 
+    //中序遍历
     public List<Integer> preorderTraversal2(TreeNode root) {
         if (root == null) {
             return list;
@@ -43,6 +45,7 @@ public class TreeTraversal {
         return list;
     }
 
+    //后序遍历
     public List<Integer> preorderTraversal3(TreeNode root) {
         // 递归终止条件，root 为 null 则遍历结束
         if (root == null) {
@@ -138,6 +141,7 @@ public class TreeTraversal {
         }
     }
 
+    //层序遍历
     public void levelOrderTraverse(TreeNode root) {
         if (root == null) {
             return;

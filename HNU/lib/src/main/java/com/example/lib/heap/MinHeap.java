@@ -7,172 +7,88 @@ import java.util.List;
  * Create by chenlong.wang
  * on 2020/9/9
  */
-public class MinHeap <T extends Comparable<T>> {
+public class MinHeap
+{
+    // 堆的存储结构 - 数组
+    private int[] data;
 
-    private List<T> mHeap; // 存放元素的动态数组
-
-    public MinHeap() {
-
-        this.mHeap = new ArrayList<>();
+    // 将一个数组传入构造方法，并转换成一个小根堆
+    public MinHeap(int[] data)
+    {
+        this.data = data;
+        buildHeap();
     }
 
-
-    /**
-     * 小顶堆的向上调整算法(添加节点的时候调用) 注：数组实现的堆中，第N个节点的左孩子的索引值是(2N+1)，右孩子的索引是(2N+2)。
-     *
-     * @param start
-     *            -- 被上调节点的起始位置(一般为数组中最后一个元素的索引)
-     */
-    protected void filterup(int start) {
-
-        int c = start; // 需要调整的节点的初始位置
-        //重点
-        int p = (c - 1) / 2; // 当前节点的父节点的位置
-        T tmp = mHeap.get(c); // 被调整节点的值
-
-        while (c > 0) {
-            // 父节点的值和被调整节点的值进行比较
-            int cmp = mHeap.get(p).compareTo(tmp);
-            if (cmp <= 0) {
-                // 父节点小
-                break;
-            } else {
-                // 被调整节点的值小，交换
-                mHeap.set(c, mHeap.get(p));
-                c = p;
-                p = (c - 1) / 2;
-            }
+    // 将数组转换成最小堆
+    private void buildHeap()
+    {
+        // 完全二叉树只有数组下标小于或等于 (data.length) / 2 - 1 的元素有孩子结点，遍历这些结点。
+        // *比如上面的图中，数组有10个元素， (data.length) / 2 - 1的值为4，a[4]有孩子结点，但a[5]没有*
+        for (int i = (data.length) / 2 - 1; i >= 0; i--)
+        {
+            // 对有孩子结点的元素heapify
+            heapify(i);
         }
-        // 找到被调整节点的最终位置了
-        mHeap.set(c, tmp);
     }
 
+    private void heapify(int i)
+    {
+        // 获取左右结点的数组下标
+        int l = left(i);
+        int r = right(i);
 
-    /**
-     * 大顶堆的向下调整算法(删除节点的时候需要调用来调整大顶堆)
-     * 注：数组实现的堆中，第N个节点的左孩子的索引值是(2N+1)，右孩子的索引是(2N+2)。
-     *
-     * @param start
-     *            -- 被下调节点的起始位置(一般为0，表示从第1个开始)
-     * @param end
-     *            -- 截至范围(一般为数组中最后一个元素的索引)
-     */
-    protected void filterdown(int start, int end) {
+        // 这是一个临时变量，表示 跟结点、左结点、右结点中最小的值的结点的下标
+        int smallest = i;
 
-        int c = start; // 被下调节点的初始位置
-        int l = 2 * c + 1; // 左孩子节点的位置
-        T tmp = mHeap.get(c); // 当前节点的值(大小)
+        // 存在左结点，且左结点的值小于根结点的值
+        if (l < data.length && data[l] < data[i])
+            smallest = l;
 
-        while (l <= end) {
-            // 当前节点的左右节点进行比较
-            int cmp = mHeap.get(l).compareTo(mHeap.get(l + 1));
-            // 取小的
-            if (l < end && cmp > 0) {
-                l++;
-            }
-            // 当前节点和小的那个再比较一下
-            cmp = tmp.compareTo(mHeap.get(l));
-            if (cmp <= 0) {
-                // 当前节点小,不用动
-                break;
-            } else {
-                // 当前节点大,交换
-                mHeap.set(c, mHeap.get(l));
-                c = l; // 更新当前节点的位置
-                l = 2 * c + 1; // 更新当前节点的左孩子位置
-            }
-        }
-        mHeap.set(c, tmp);
+        // 存在右结点，且右结点的值小于以上比较的较小值
+        if (r < data.length && data[r] < data[smallest])
+            smallest = r;
+
+        // 左右结点的值都大于根节点，直接return，不做任何操作
+        if (i == smallest)
+            return;
+
+        // 交换根节点和左右结点中最小的那个值，把根节点的值替换下去
+        swap(i, smallest);
+
+        // 由于替换后左右子树会被影响，所以要对受影响的子树再进行heapify
+        heapify(smallest);
     }
 
-
-    /**
-     * 向大顶堆中插入新元素
-     *
-     * @param data
-     */
-    public void insert(T data) {
-
-        int insertIndex = mHeap.size(); // 获取插入的位置
-        // 将新元素插入到数组尾部
-        mHeap.add(data);
-        // 调用filterup函数，调整大顶堆
-        filterup(insertIndex);
+    // 获取右结点的数组下标
+    private int right(int i)
+    {
+        return (i + 1) << 1;
     }
 
-
-    /**
-     * 删除大顶堆中的data节点
-     *
-     * @param data
-     * @return 返回-1表示出错, 返回0表示删除成功
-     */
-    public int remove(T data) {
-
-        // 小顶堆空
-        if (mHeap.isEmpty()) {
-            return -1;
-        }
-
-        // 获取data在数组中的索引
-        int index = mHeap.indexOf(data);
-        if (index == -1) {
-            return -1;
-        }
-
-        // 堆中元素的个数
-        int size = mHeap.size();
-        // 删除了data元素，需要用最后一个元素填补，然后调用filterdown算法进行调整
-        mHeap.set(index, mHeap.get(size - 1)); // 用最后一个元素填补
-        mHeap.remove(size - 1); // 删除最后一个元素
-
-        if (mHeap.size() > 1 && index < mHeap.size()) {
-            // 调整成小顶堆
-            filterdown(index, mHeap.size() - 1);
-        }
-        return 0;
+    // 获取左结点的数组下标
+    private int left(int i)
+    {
+        return ((i + 1) << 1) - 1;
     }
 
-
-    @Override
-    public String toString() {
-
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < mHeap.size(); i++) {
-            sb.append(mHeap.get(i) + " ");
-        }
-        return sb.toString();
+    // 交换元素位置
+    private void swap(int i, int j)
+    {
+        int tmp = data[i];
+        data[i] = data[j];
+        data[j] = tmp;
     }
 
-    public static void main(String[] args) {
+    // 获取对中的最小的元素，根元素
+    public int getRoot()
+    {
+        return data[0];
+    }
 
-        int a[] = {10, 40 ,30, 60, 90, 70, 20, 50 ,80};
-
-        //大顶堆
-        MinHeap<Integer> minHeap = new MinHeap<>();
-
-        //添加元素
-        System.out.println("=== 依次添加元素：");
-        for(int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-            minHeap.insert(a[i]);
-        }
-
-        //生成的小顶堆
-        System.out.println("=== 生成的小顶堆：");
-        System.out.println(minHeap);
-
-        //添加新元素85
-        int data = 85;
-        minHeap.insert(data);
-        System.out.println("=== 添加新元素" + data + "之后的小顶堆：");
-        System.out.println(minHeap);
-
-        //删除元素90
-        data = 90;
-        minHeap.remove(data);
-        System.out.println("=== 删除元素" + data + "之后的小顶堆：");
-        System.out.println(minHeap);
-
+    // 替换根元素，并重新heapify
+    public void setRoot(int root)
+    {
+        data[0] = root;
+        heapify(0);
     }
 }

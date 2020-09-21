@@ -1,5 +1,8 @@
 package com.example.lib.treeGraph;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Create by chenlong.wang
  * 4.5　实现一个函数，检查一棵二叉树是否为二叉查找树。（第54页）
@@ -53,6 +56,13 @@ public class checkBST {
     /**
      * 解答2
      * 最小/最大法
+     * 也是利用了递归的思想，分别对每一个子树进行判断，但是它的亮点在于在判断的时候并不需要对子树进行搜索“最相近的值”，而是利用了“最大值”、“最小值”的思想：
+     *
+     * 对于每个子树，都有一个最大值和一个最小值，
+     *
+     * 对于左子树，最大值就是它的根节点的值，最小值是根节点的最小值（左父亲或者MIN_VALUE）
+     *
+     * 对于右子树，最小值就是它的根节点的值，最大值是根节点的最大值（右父亲或者MAX_VALUE）
      */
     public static boolean checkBST2(TreeNode n) {
         return checkBST2(n, Integer.MIN_VALUE, Integer.MAX_VALUE);
@@ -70,6 +80,31 @@ public class checkBST {
             return false;
         }
         return true;
+    }
+
+    public boolean isValidBST2(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        List<Integer> list = new ArrayList<>();
+        inOrder(root, list);
+
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i) >= list.get(i + 1))
+                return false;
+        }
+
+        return true;
+    }
+
+    //中序遍历
+    private void inOrder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left, list);
+        list.add(root.val);
+        inOrder(root.right, list);
     }
 
 
